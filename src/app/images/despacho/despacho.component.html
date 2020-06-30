@@ -1,0 +1,100 @@
+<div class="card" style="width:25rem">
+  <div class="card-body">
+    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+      <div class="text-center">
+        <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+      </div>
+      <div class="form-group">
+        <label>Select file to upload</label>
+        <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
+          (change)="showPreview($event)">
+        <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <input class="form-control" formControlName="caption" placeholder="Caption">
+        <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">This field is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <select formControlName="category" class="form-control">
+          <option value="Animal">Animal</option>
+          <option value="Vehicle">Vehicle</option>
+          <option value="Bird">Bird</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <a routerLink="/image/list" class="btn btn-primary btn-block float-right">Go To Gallery</a>
+        </div>
+        <div class="form-group col-md-6">
+          <button type="submit" class="btn btn-success btn-block float-right">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="employeeService.selectedEmployee.$key">
+  <div class="form-group">
+    <label>Nombre</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </span>
+      </div>
+      <input class="form-control" name="nombre" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.nombre" placeholder="Nombre"
+        required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Dirección</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <input class="form-control" name="direccion" #position="ngModel" [(ngModel)]="employeeService.selectedEmployee.direccion" placeholder="Dirección">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Telefono</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <input class="form-control" name="telefono" #office="ngModel" [(ngModel)]="employeeService.selectedEmployee.telefono" placeholder="Telefono">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Pedido</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+      </div>
+      <input type="text" class="form-control"  name="pedido"  [(ngModel)]="employeeService.selectedEmployee.pedido"
+        placeholder="Pedido">
+      <div class="input-group-append">
+        <!-- <span class="input-group-text">.00</span> 
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Despachado<input class="form-control" type="checkbox" name="despachado"  [(ngModel)]="employeeService.selectedEmployee.despachado">   
+    </label>
+   
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default" [disabled]="!employeeForm.valid">
+      <i class="fa fa-floppy-o"></i> Submit</button>
+    <button type="button" class="btn btn-default" *ngIf="employeeService.selectedEmployee.$key!=null" (click)="onDelete(employeeForm)">
+      <i class="fa fa-trash"></i> Delete</button>
+    <button type="button" class="btn btn-default" (click)="resetForm(employeeForm)">
+      <i class="fa fa-repeat"></i> Reset</button>
+  </div>
+</form> -->
