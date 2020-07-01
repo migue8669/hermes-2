@@ -4,15 +4,16 @@ import { ImagesComponent } from './images/images.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistroComponent } from './images/registro/registro.component.';
+import { DespachoComponent } from './images/despacho/despacho.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'image/despacho', pathMatch: 'full' },
+  { path: '', redirectTo: 'image/registro', pathMatch: 'full' },
   {
     path: 'image', component: ImagesComponent, children: [
       { path: 'upload', component: ImageComponent },
       { path: 'list', component: ImageListComponent },
-      { path: 'registro', component: RegistroComponent }
-
+      { path: 'registro', component: RegistroComponent },
+      { path: 'despacho', component: DespachoComponent }
     ]
   }
   

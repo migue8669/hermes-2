@@ -1,5 +1,5 @@
 export class Despacho {
-    $key: string;
+    $key?: string;
     nombre : string;
     direccion: string;
     telefono: string;

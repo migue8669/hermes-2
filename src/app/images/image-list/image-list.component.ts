@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/shared/image.service';
+import { RegistroService } from 'src/app/shared/registro.service';
 
 @Component({
   selector: 'app-image-list',
@@ -10,7 +11,7 @@ export class ImageListComponent implements OnInit {
   imageList: any[];
   rowIndexArray: any[];
 
-  constructor(private service: ImageService) { }
+  constructor(private service: RegistroService) { }
 
   ngOnInit() {
     this.service.imageDetailList.snapshotChanges().subscribe(

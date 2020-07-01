@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup } from '@angular/forms';
-import { DespachoService } from 'src/app/shared/despacho.service';
+import { RegistroService } from 'src/app/shared/registro.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ImageService } from 'src/app/shared/image.service';
 import { finalize } from 'rxjs/operators';

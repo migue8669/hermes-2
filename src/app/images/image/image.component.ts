@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from "rxjs/operators";
 import { ImageService } from 'src/app/shared/image.service';
+import { RegistroService } from 'src/app/shared/registro.service';
 
 @Component({
   selector: 'app-image',
@@ -20,7 +21,7 @@ export class ImageComponent implements OnInit {
     imageUrl: new FormControl('', Validators.required)
   })
 
-  constructor(private storage: AngularFireStorage, private service: ImageService) { }
+  constructor(private storage: AngularFireStorage, private service: RegistroService) { }
 
   ngOnInit() {
     this.resetForm();
