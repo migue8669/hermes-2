@@ -15,10 +15,12 @@ export class ImageListComponent implements OnInit {
   ngOnInit() {
     this.service.imageDetailList.snapshotChanges().subscribe(
       list => {
-        this.imageList = list.map(item => { return item.payload.val(); });
-        this.rowIndexArray =  Array.from(Array(Math.ceil((this.imageList.length+1) / 3)).keys());
+        console.log(list);
+        this.imageList = list.map(item=> { return item.payload.val(); });
+        console.log(this.imageList);
+        this.rowIndexArray =  Array.from(Array(Math.ceil((this.imageList.length) )).keys());
+        console.log(this.rowIndexArray);
       }
     );
   }
-
 }

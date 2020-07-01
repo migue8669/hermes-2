@@ -10,7 +10,8 @@ export class ImageService {
   constructor(private firebase: AngularFireDatabase) { }
 
   getImageDetailList() {
-    this.imageDetailList = this.firebase.list('imageDetails');
+    this.imageDetailList = this.firebase.list('productoHermes');
+    console.log(this.imageDetailList);
   }
 
   insertImageDetails(imageDetails) {

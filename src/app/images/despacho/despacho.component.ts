@@ -16,8 +16,8 @@ export class DespachoComponent implements OnInit {
   isSubmitted: boolean;
 
   formTemplate = new FormGroup({
-    caption: new FormControl('', Validators.required),
-    category: new FormControl(''),
+    precio: new FormControl('', Validators.required),
+    nombre: new FormControl(''),
     imageUrl: new FormControl('', Validators.required)
   })
 
@@ -41,9 +41,10 @@ export class DespachoComponent implements OnInit {
   }
 
   onSubmit(formValue) {
+    console.log(formValue);
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
-      var filePath = `${formValue.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
+      var filePath = `${formValue.precio}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize(() => {
@@ -64,9 +65,9 @@ export class DespachoComponent implements OnInit {
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
-      caption: '',
+      precio: '',
       imageUrl: '',
-      category: 'Animal'
+      nombre: ''
     });
     this.imgSrc = '/assets/img/image_placeholder.jpg';
     this.selectedImage = null;
