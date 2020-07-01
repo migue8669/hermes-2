@@ -3,7 +3,7 @@ import { ImageComponent } from './images/image/image.component';
 import { ImagesComponent } from './images/images.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DespachoComponent } from './images/despacho/despacho.component';
+import { RegistroComponent } from './images/registro/registro.component.';
 
 const routes: Routes = [
   { path: '', redirectTo: 'image/despacho', pathMatch: 'full' },
@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'image', component: ImagesComponent, children: [
       { path: 'upload', component: ImageComponent },
       { path: 'list', component: ImageListComponent },
-      { path: 'despacho', component: DespachoComponent }
+      { path: 'registro', component: RegistroComponent }
 
     ]
   }

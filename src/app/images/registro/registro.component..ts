@@ -6,11 +6,11 @@ import { ImageService } from 'src/app/shared/image.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-despacho',
-  templateUrl: './despacho.component.html',
-  styleUrls: ['./despacho.component.css']
+  selector: 'app-registroo',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class DespachoComponent implements OnInit {
+export class RegistroComponent implements OnInit {
   imgSrc: string;
   selectedImage: any = null;
   isSubmitted: boolean;

@@ -12,7 +12,7 @@ import { ImagesComponent } from './images/images.component';
 import { ImageComponent } from './images/image/image.component';
 import { ImageListComponent } from './images/image-list/image-list.component';
 import { environment } from "../environments/environment";
-import { DespachoComponent } from './images/despacho/despacho.component';
+import { RegistroComponent } from './images/registro/registro.component.';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { DespachoComponent } from './images/despacho/despacho.component';
     ImagesComponent,
     ImageComponent,
     ImageListComponent,
-    DespachoComponent
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
