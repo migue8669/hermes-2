@@ -16,6 +16,7 @@ export class DespachoComponent implements OnInit {
   isSubmitted: boolean;
 
   formTemplate = new FormGroup({
+     $key:new FormControl(''),
      nombre: new FormControl(''),
      direccion: new FormControl(''),
      telefono: new FormControl(''),
@@ -24,7 +25,7 @@ export class DespachoComponent implements OnInit {
 
   })
 
-  constructor(private storage: AngularFireStorage, private service: DespachoService) { }
+  constructor(private storage: AngularFireStorage, public service: DespachoService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -44,7 +45,16 @@ export class DespachoComponent implements OnInit {
   }
 
   onSubmit(formValue) {
-   console.log(formValue);
+   console.log(formValue.$key);
+   if (formValue.$key == null) {
+    this.service.insertImageDetails(formValue);
+  } else {
+   this.service.updateEmployee(formValue);
+  }
+
+ this.resetForm();
+}
+
     // this.isSubmitted = true;
     // if (this.formTemplate.valid) {
     //   var filePath = `${formValue.nombre}_${new Date().getTime()}`;
@@ -53,13 +63,13 @@ export class DespachoComponent implements OnInit {
     //     finalize(() => {
     //       fileRef.getDownloadURL().subscribe((url) => {
     //         formValue['imageUrl'] = url;
-             this.service.insertImageDetails(formValue);
+            //  this.service.insertImageDetails(formValue);
           //   this.resetForm();
           // })
     //     })
     //   ).subscribe();
     // }
-  }
+  
 
   get formControls() {
     return this.formTemplate['controls'];
@@ -68,6 +78,7 @@ export class DespachoComponent implements OnInit {
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
+      $key : null,
       nombre: '',
       direccion: '',
       telefono: '',

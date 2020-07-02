@@ -11,7 +11,7 @@ export class ImageListComponent implements OnInit {
   imageList: any[];
   rowIndexArray: any[];
 
-  constructor(private service: RegistroService) { }
+  constructor(private service: ImageService) { }
 
   ngOnInit() {
     this.service.imageDetailList.snapshotChanges().subscribe(

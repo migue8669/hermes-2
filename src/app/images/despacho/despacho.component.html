@@ -1,26 +1,29 @@
 <div class="card" style="width:25rem">
   <div class="card-body">
-    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
-
+    <form [formGroup]="formTemplate" (ngSubmit)="onSubmit(formTemplate.value)">
+ 
+      <div class="form-group">
+        <input type="hidden"class="form-control" formControlName="$key"  [(ngModel)]="service.selectedDespacho.$key">
+      </div>
       
       <div class="form-group">
-        <input class="form-control" formControlName="nombre" placeholder="Nombre">
+        <input class="form-control" formControlName="nombre" [(ngModel)]="service.selectedDespacho.nombre" placeholder="Nombre">
       </div>
       <div class="form-group">
-        <input class="form-control" formControlName="direccion" placeholder="Dirección">
+        <input class="form-control" formControlName="direccion" [(ngModel)]="service.selectedDespacho.direccion" placeholder="Dirección">
         </div>
         <div class="form-group">
-          <input class="form-control" formControlName="telefono" placeholder="Teléfono">
+          <input class="form-control" formControlName="telefono" [(ngModel)]="service.selectedDespacho.telefono" placeholder="Teléfono">
           </div>
           <div class="form-group">
-            <input class="form-control" formControlName="pedido" placeholder="Pedido">
+            <input class="form-control" formControlName="pedido" [(ngModel)]="service.selectedDespacho.pedido" placeholder="Pedido">
             </div>
             <div class="form-group">
-              <input class="form-control" type="checkbox" formControlName="despachado" placeholder="Despachado">
+              <input class="form-control" type="checkbox" formControlName="despachado" [(ngModel)]="service.selectedDespacho.despachado" placeholder="Despachado">
               </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <a routerLink="/image/list" class="btn btn-primary btn-block float-right">Go To Gallery</a>
+          <a routerLink="/image/list" class="btn btn-primary btn-block float-right">Registro de productos </a>
         </div>
         <div class="form-group col-md-6">
           <button type="submit" class="btn btn-success btn-block float-right">Submit</button>
@@ -31,5 +34,7 @@
         </div> -->
       </div>
     </form>
+    <app-despacho-list></app-despacho-list>
   </div>
 </div>
+
