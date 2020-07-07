@@ -6,7 +6,7 @@ import { ImageService } from 'src/app/shared/image.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-registroo',
+  selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
@@ -16,7 +16,7 @@ export class RegistroComponent implements OnInit {
   isSubmitted: boolean;
 
   formTemplate = new FormGroup({
-    precio: new FormControl('', Validators.required),
+   // precio: new FormControl('', Validators.required),
     nombre: new FormControl(''),
     imageUrl: new FormControl('', Validators.required)
   })
@@ -44,13 +44,13 @@ export class RegistroComponent implements OnInit {
     console.log(formValue);
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
-      var filePath = `${formValue.precio}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
+      var filePath = `${formValue.nombre}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             formValue['imageUrl'] = url;
-            this.service.insertImageDetails(formValue);
+            this.service.insertImageDetailsH(formValue);
             this.resetForm();
           })
         })
@@ -65,7 +65,7 @@ export class RegistroComponent implements OnInit {
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
-      precio: '',
+   //   precio: '',
       imageUrl: '',
       nombre: ''
     });

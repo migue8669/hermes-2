@@ -10,20 +10,15 @@
         <input class="form-control" formControlName="nombre" [(ngModel)]="service.selectedDespacho.nombre" placeholder="Nombre">
       </div>
       <div class="form-group">
-        <input class="form-control" formControlName="direccion" [(ngModel)]="service.selectedDespacho.direccion" placeholder="Dirección">
-        </div>
-        <div class="form-group">
-          <input class="form-control" formControlName="telefono" [(ngModel)]="service.selectedDespacho.telefono" placeholder="Teléfono">
-          </div>
-          <div class="form-group">
-            <input class="form-control" formControlName="pedido" [(ngModel)]="service.selectedDespacho.pedido" placeholder="Pedido">
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="checkbox" formControlName="despachado" [(ngModel)]="service.selectedDespacho.despachado" placeholder="Despachado">
-              </div>
+        <input class="form-control" formControlName="precio" [(ngModel)]="service.selectedDespacho.precio" placeholder="Precio">
+      </div>
+      <div class="form-group">
+        <input class="form-control" formControlName="imgUrl" [(ngModel)]="service.selectedDespacho.imgUrl" placeholder="Imagen">
+      </div>
+      
       <div class="form-row">
         <div class="form-group col-md-6">
-          <a routerLink="/image/list" class="btn btn-primary btn-block float-right">Registro de productos </a>
+          <a routerLink="/image/registro" class="btn btn-primary btn-block float-right">Registro de productos </a>
         </div>
         <div class="form-group col-md-6">
           <button type="submit" class="btn btn-success btn-block float-right">Submit</button>
@@ -38,7 +33,17 @@
         </div> -->
       </div>
     </form>
-    <app-despacho-list></app-despacho-list>
+    <app-registro type="hidden"></app-registro>
+    <app-producto-registrado-list></app-producto-registrado-list>   
+
+    <!-- <app-image-list ></app-image-list >   -->
+          <!-- <app-producto-con-precio></app-producto-con-precio> -->
+<!-- 
+     <app-producto-registrado-list></app-producto-registrado-list>   
+ <app-image-list ></app-image-list > -->
   </div>
 </div>
+  
+
+
 

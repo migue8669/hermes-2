@@ -90,4 +90,12 @@ export class DespachoComponent implements OnInit {
     this.isSubmitted = false;
   }
 
+  onDelete(form) {
+    console.log(form.value);
+    if (confirm('Are you sure to delete this record ?') === true) {
+      this.service.deleteEmployee(form.value.$key);
+      this.resetForm();
+    }
+  }
+     
 }

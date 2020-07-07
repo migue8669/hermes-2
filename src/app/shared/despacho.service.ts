@@ -41,5 +41,9 @@ export class DespachoService {
       despachado:emp.despachado
     });
   }
+  deleteEmployee(key: string) {
+    this.imageDetailList.remove(key);
+  }
+
 
 }

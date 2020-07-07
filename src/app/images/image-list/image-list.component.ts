@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/shared/image.service';
 import { RegistroService } from 'src/app/shared/registro.service';
+import { ProductoRegistrado } from 'src/app/shared/ProductoRegistrado.model';
+import { ProductoRegistradoService } from 'src/app/shared/producto-registrado.service';
 
 @Component({
   selector: 'app-image-list',
@@ -10,8 +12,9 @@ import { RegistroService } from 'src/app/shared/registro.service';
 export class ImageListComponent implements OnInit {
   imageList: any[];
   rowIndexArray: any[];
+  employeelist: ProductoRegistradoService[];
 
-  constructor(private service: ImageService) { }
+  constructor(private service: ImageService, private employe:ProductoRegistradoService) { }
 
   ngOnInit() {
     this.service.imageDetailList.snapshotChanges().subscribe(
@@ -23,5 +26,11 @@ export class ImageListComponent implements OnInit {
         console.log(this.rowIndexArray);
       }
     );
+  }
+  
+  onItemClick(emp: ProductoRegistrado) {
+    console.log(emp)
+    this.employe.selectedDespacho = Object.assign({}, emp);
+
   }
 }

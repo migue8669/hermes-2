@@ -15,6 +15,8 @@ import { environment } from "../environments/environment";
 import { RegistroComponent } from './images/registro/registro.component.';
 import { DespachoComponent } from './images/despacho/despacho.component';
 import { DespachoListComponent } from './images/despacho-list/despacho-list.component';
+import { ProductosComponent } from './images/productos/productos.component';
+import { ProductoRegistradoListComponent } from './images/producto-registrado-list/producto-registrado-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { DespachoListComponent } from './images/despacho-list/despacho-list.comp
     ImageListComponent,
     RegistroComponent,
     DespachoComponent,
-    DespachoListComponent
+    DespachoListComponent,
+    ProductosComponent,
+    ProductoRegistradoListComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistroComponent } from './images/registro/registro.component.';
 import { DespachoComponent } from './images/despacho/despacho.component';
+import { ProductosComponent } from './images/productos/productos.component';
+import { ProductoRegistrado } from './shared/ProductoRegistrado.model';
+import { ProductoRegistradoListComponent } from './images/producto-registrado-list/producto-registrado-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'image/registro', pathMatch: 'full' },
@@ -13,7 +16,10 @@ const routes: Routes = [
       { path: 'upload', component: ImageComponent },
       { path: 'list', component: ImageListComponent },
       { path: 'registro', component: RegistroComponent },
-      { path: 'despacho', component: DespachoComponent }
+      { path: 'despacho', component: DespachoComponent },
+      { path: 'producto', component: ProductosComponent },
+      { path: 'list-producto', component: ProductoRegistradoListComponent },
+
     ]
   }
   
