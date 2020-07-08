@@ -12,7 +12,7 @@ export class ProductoRegistradoService {
   constructor(private firebase: AngularFireDatabase) { }
 
   getImageDetailList() {
-    this.imageDetailList = this.firebase.list('productoHermes/productos');
+    this.imageDetailList = this.firebase.list('productoHermes');
  //   console.log(this.imageDetailList);
     return this.imageDetailList;
         console.log(this.imageDetailList);
@@ -32,22 +32,22 @@ export class ProductoRegistradoService {
 //   }
 
   insertImageDetails(imageDetails) {
-    this.imageDetailList=this.firebase.list('productoHermes/productos')
+    this.imageDetailList=this.firebase.list('/productoHermes')
     console.log(imageDetails);
     this.imageDetailList.push({
       nombre: imageDetails.nombre,
       precio:imageDetails.precio,
-      imgUrl:imageDetails.imgUrl
+      imageUrl:imageDetails.imageUrl
  });
     // this.imageDetailList.push(nombre:imageDetails.nombre,direccion:imageDetails.direccion,telefono:imageDetails.telefono,pedido:imageDetails.pedido,despachado:imageDetails.despachado);
   }
   updateEmployee(emp) {
-    this.imageDetailList=this.firebase.list('productoHermes/productos')
+    this.imageDetailList=this.firebase.list('/productoHermes')
 
     this.imageDetailList.update(emp.$key, {
       nombre: emp.nombre,
       precio:emp.precio,
-      imgUrl:emp.imgUrl
+      imageUrl:emp.imageUrl
     });
   }
 

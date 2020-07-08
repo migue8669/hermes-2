@@ -13,12 +13,16 @@ export class ProductosComponent implements OnInit {
   imgSrc: string;
   selectedImage: any = null;
   isSubmitted: boolean;
+  isHidden: boolean = true;
+  isHidden2: boolean = true;
+
+  botonProducto:string="Nuevo Producto";
 
   formTemplate = new FormGroup({
     $key: new FormControl(""),
     nombre: new FormControl(""),
     precio: new FormControl(""),
-    imgUrl: new FormControl(""),
+    imageUrl: new FormControl(""),
   });
 
   constructor(
@@ -54,21 +58,18 @@ export class ProductosComponent implements OnInit {
 
     this.resetForm();
   }
+cambioEstadoPaneles(estado){
+  estado=!estado;
+  console.log(estado)
+  this.isHidden=estado;
+  this.isHidden2=estado;
+  if(this.isHidden==true){
+    this.botonProducto="Nuevo Producto"
+  }else{
+    this.botonProducto="Lista de productos"
 
-  // this.isSubmitted = true;
-  // if (this.formTemplate.valid) {
-  //   var filePath = `${formValue.nombre}_${new Date().getTime()}`;
-  //   const fileRef = this.storage.ref(filePath);
-  //   this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-  //     finalize(() => {
-  //       fileRef.getDownloadURL().subscribe((url) => {
-  //         formValue['imageUrl'] = url;
-  //  this.service.insertImageDetails(formValue);
-  //   this.resetForm();
-  // })
-  //     })
-  //   ).subscribe();
-  // }
+  }
+}
 
   get formControls() {
     return this.formTemplate["controls"];
@@ -80,7 +81,7 @@ export class ProductosComponent implements OnInit {
       $key: null,
       nombre: "",
       precio: "",
-      imgUrl: "",
+      imageUrl: "",
  
     });
     this.imgSrc = "/assets/img/image_placeholder.jpg";
