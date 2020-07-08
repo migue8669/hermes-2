@@ -22,7 +22,6 @@ export class ImageComponent implements OnInit {
     imageUrl: new FormControl('', Validators.required)
   })
 
-  // constructor(private storage: AngularFireStorage, private service: RegistroService) { }
   constructor(private storage: AngularFireStorage, private service: ProductoRegistradoService) { }
 
   ngOnInit() {

@@ -15,6 +15,7 @@ export class ProductosComponent implements OnInit {
   isSubmitted: boolean;
   isHidden: boolean = true;
   isHidden2: boolean = true;
+  disabled:boolean;
 
   botonProducto:string="Nuevo Producto";
 

@@ -10,7 +10,7 @@ import { ProductoRegistrado } from './shared/ProductoRegistrado.model';
 import { ProductoRegistradoListComponent } from './images/producto-registrado-list/producto-registrado-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'image/registro', pathMatch: 'full' },
+  { path: '', redirectTo: 'image/producto', pathMatch: 'full' },
   {
     path: 'image', component: ImagesComponent, children: [
       { path: 'upload', component: ImageComponent },

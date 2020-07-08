@@ -14,7 +14,7 @@ export class DespachoComponent implements OnInit {
   imgSrc: string;
   selectedImage: any = null;
   isSubmitted: boolean;
-
+ disabled:boolean;
   formTemplate = new FormGroup({
      $key:new FormControl(''),
      nombre: new FormControl(''),
@@ -55,21 +55,7 @@ export class DespachoComponent implements OnInit {
  this.resetForm();
 }
 
-    // this.isSubmitted = true;
-    // if (this.formTemplate.valid) {
-    //   var filePath = `${formValue.nombre}_${new Date().getTime()}`;
-    //   const fileRef = this.storage.ref(filePath);
-    //   this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-    //     finalize(() => {
-    //       fileRef.getDownloadURL().subscribe((url) => {
-    //         formValue['imageUrl'] = url;
-            //  this.service.insertImageDetails(formValue);
-          //   this.resetForm();
-          // })
-    //     })
-    //   ).subscribe();
-    // }
-  
+
 
   get formControls() {
     return this.formTemplate['controls'];

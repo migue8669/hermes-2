@@ -1,66 +1,98 @@
-<div class="card" style="width:25rem">
+<div class="card" style="width: 25rem;">
   <div class="card-body">
     <form [formGroup]="formTemplate" (ngSubmit)="onSubmit(formTemplate.value)">
- 
       <div class="form-group">
-        <input type="hidden"class="form-control" formControlName="$key"  [(ngModel)]="service.selectedDespacho.$key">
+        <input
+          type="hidden"
+          class="form-control"
+          formControlName="$key"
+          [(ngModel)]="service.selectedDespacho.$key"
+        />
       </div>
-      
-      <div class="form-group">
-        <input class="form-control" formControlName="nombre" [(ngModel)]="service.selectedDespacho.nombre" placeholder="Nombre">
-        <div class="text-danger" *ngIf="isSubmitted && formControls.nombre.errors?.required">Éste campo es requerido.
-        </div>
 
-      </div>
       <div class="form-group">
-        <input class="form-control" formControlName="precio" [(ngModel)]="service.selectedDespacho.precio" placeholder="Precio">
-        <div class="text-danger" *ngIf="isSubmitted && formControls.precio.errors?.required">Éste campo es requerido.
+        <input
+          class="form-control"
+          formControlName="nombre"
+          [(ngModel)]="service.selectedDespacho.nombre"
+          placeholder="Nombre"
+        />
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && formControls.nombre.errors?.required"
+        >
+          Éste campo es requerido.
         </div>
       </div>
-      
       <div class="form-group">
-        <input class="form-control" formControlName="imageUrl" [(ngModel)]="service.selectedDespacho.imageUrl" placeholder="Imagen">
-        <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">Éste campo es requerido.
+        <input
+          class="form-control"
+          formControlName="precio"
+          [(ngModel)]="service.selectedDespacho.precio"
+          placeholder="Precio"
+        />
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && formControls.precio.errors?.required"
+        >
+          Éste campo es requerido.
         </div>
+      </div>
 
+      <div class="form-group">
+        <input
+          class="form-control"
+          formControlName="imageUrl"
+          [(ngModel)]="service.selectedDespacho.imageUrl"
+          placeholder="Imagen"
+          disabled="disabled"
+        />
+        <div
+          class="text-danger"
+          *ngIf="isSubmitted && formControls.imageUrl.errors?.required"
+        >
+          Éste campo es requerido.
+        </div>
       </div>
-      
+
       <div class="form-row">
-        <!-- <div class="form-group col-md-6">
-          <a routerLink="/image/registro" class="btn btn-primary btn-block float-right">Registro de productos </a>
-        </div> -->
         <div class="form-group col-md-6">
-          <button type="submit" class="btn btn-success btn-block float-right">Subir</button>
-        </div>
-        <div class="form-group col-md-6">
-          <button type="button" class="btn btn-success btn-block float-right" (click)="cambioEstadoPaneles(isHidden)">{{botonProducto}}</button>
-        </div>
-        <div class="form-group col-md-6">
-          <button routerLink="../despacho" class="btn btn-success btn-block float-right">Despachos
+          <button type="submit" class="btn btn-success btn-block float-right">
+            Guardar
           </button>
         </div>
         <div class="form-group col-md-6">
-          <button type="button" class="btn btn-danger btn-block float-right" *ngIf="service.selectedDespacho.$key!=null" (click)="onDelete(formTemplate)">
-            <i class="fa fa-trash"></i> Eliminar</button>
-          </div>
-        <!-- <div class="form-group col-md-6">
-          <button routerLink="../despacho" class="btn btn-success btn-block float-right">Despachos
+          <button
+            type="button"
+            class="btn btn-success btn-block float-right"
+            (click)="cambioEstadoPaneles(isHidden)"
+          >
+            {{ botonProducto }}
           </button>
-        </div> -->
+        </div>
+        <div class="form-group col-md-6">
+          <button
+            routerLink="../despacho"
+            class="btn btn-primary btn-block float-right"
+          >
+            Despachos
+          </button>
+        </div>
+        <div class="form-group col-md-6">
+          <button
+            type="button"
+            class="btn btn-danger btn-block float-right"
+            *ngIf="service.selectedDespacho.$key != null"
+            (click)="onDelete(formTemplate)"
+          >
+            <i class="fa fa-trash"></i> Eliminar
+          </button>
+        </div>
       </div>
       <app-registro *ngIf="!isHidden"></app-registro>
-      <app-producto-registrado-list *ngIf="isHidden2"></app-producto-registrado-list>   
+      <app-producto-registrado-list
+        *ngIf="isHidden2"
+      ></app-producto-registrado-list>
     </form>
- 
-
-    <!-- <app-image-list ></app-image-list >   -->
-          <!-- <app-producto-con-precio></app-producto-con-precio> -->
-<!-- 
-     <app-producto-registrado-list></app-producto-registrado-list>   
- <app-image-list ></app-image-list > -->
   </div>
 </div>
-  
-
-
-

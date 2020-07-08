@@ -1,45 +1,88 @@
-<div class="card" style="width:25rem">
+<div class="card" style="width: 25rem;">
   <div class="card-body">
     <form [formGroup]="formTemplate" (ngSubmit)="onSubmit(formTemplate.value)">
- 
       <div class="form-group">
-        <input type="hidden"class="form-control" formControlName="$key"  [(ngModel)]="service.selectedDespacho.$key">
+        <input
+          type="hidden"
+          class="form-control"
+          formControlName="$key"
+          [(ngModel)]="service.selectedDespacho.$key"
+        />
       </div>
-      
+
       <div class="form-group">
-        <input class="form-control" formControlName="nombre" [(ngModel)]="service.selectedDespacho.nombre" placeholder="Nombre">
+        <input
+          class="form-control"
+          formControlName="nombre"
+          [(ngModel)]="service.selectedDespacho.nombre"
+          placeholder="Nombre"
+          disabled="disabled"
+        />
       </div>
       <div class="form-group">
-        <input class="form-control" formControlName="direccion" [(ngModel)]="service.selectedDespacho.direccion" placeholder="Dirección">
-        </div>
-        <div class="form-group">
-          <input class="form-control" formControlName="telefono" [(ngModel)]="service.selectedDespacho.telefono" placeholder="Teléfono">
-          </div>
-          <div class="form-group">
-            <input class="form-control" formControlName="pedido" [(ngModel)]="service.selectedDespacho.pedido" placeholder="Pedido">
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="checkbox" formControlName="despachado" [(ngModel)]="service.selectedDespacho.despachado" placeholder="Despachado">
-              </div>
+        <input
+          class="form-control"
+          formControlName="direccion"
+          [(ngModel)]="service.selectedDespacho.direccion"
+          placeholder="Dirección"
+          disabled="disabled"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          formControlName="telefono"
+          [(ngModel)]="service.selectedDespacho.telefono"
+          placeholder="Teléfono"
+          disabled="disabled"
+        />
+      </div>
+      <div class="form-group">
+        <textarea
+          class="form-control"
+          type="text"
+          formControlName="pedido"
+          [(ngModel)]="service.selectedDespacho.pedido"
+          placeholder="Pedido"
+          disabled="disabled"
+        >
+        </textarea>
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="checkbox"
+          formControlName="despachado"
+          [(ngModel)]="service.selectedDespacho.despachado"
+          placeholder="Despachado"
+        />
+      </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <button type="submit" class="btn btn-success btn-block float-right">Despachar</button>
-        </div>
-        <div class="form-group col-md-6">
-          <a routerLink="/image/producto" class="btn btn-primary btn-block float-right">Productos </a>
-        </div>
-      
-        <div class="form-group col-md-6">
-          <button type="button" class="btn btn-danger btn-block float-right" *ngIf="service.selectedDespacho.$key!=null" (click)="onDelete(formTemplate)">
-            <i class="fa fa-trash"></i> Eliminar</button>
-          </div>
-        <!-- <div class="form-group col-md-6">
-          <button routerLink="../despacho" class="btn btn-success btn-block float-right">Despachos
+          <button type="submit" class="btn btn-success btn-block float-right">
+            Despachar
           </button>
-        </div> -->
+        </div>
+        <div class="form-group col-md-6">
+          <a
+            routerLink="/image/producto"
+            class="btn btn-primary btn-block float-right"
+            >Productos
+          </a>
+        </div>
+
+        <div class="form-group col-md-6">
+          <button
+            type="button"
+            class="btn btn-danger btn-block float-right"
+            *ngIf="service.selectedDespacho.$key != null"
+            (click)="onDelete(formTemplate)"
+          >
+            <i class="fa fa-trash"></i> Eliminar
+          </button>
+        </div>
       </div>
     </form>
     <app-despacho-list></app-despacho-list>
   </div>
 </div>
-
