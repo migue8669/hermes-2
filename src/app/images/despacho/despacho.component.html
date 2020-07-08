@@ -23,14 +23,15 @@
               </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <a routerLink="/image/list" class="btn btn-primary btn-block float-right">Registro de productos </a>
+          <button type="submit" class="btn btn-success btn-block float-right">Despachar</button>
         </div>
         <div class="form-group col-md-6">
-          <button type="submit" class="btn btn-success btn-block float-right">Submit</button>
+          <a routerLink="/image/producto" class="btn btn-primary btn-block float-right">Productos </a>
         </div>
-        <div class="form-group col-md-3">
+      
+        <div class="form-group col-md-6">
           <button type="button" class="btn btn-danger btn-block float-right" *ngIf="service.selectedDespacho.$key!=null" (click)="onDelete(formTemplate)">
-            <i class="fa fa-trash"></i> Delete</button>
+            <i class="fa fa-trash"></i> Eliminar</button>
           </div>
         <!-- <div class="form-group col-md-6">
           <button routerLink="../despacho" class="btn btn-success btn-block float-right">Despachos

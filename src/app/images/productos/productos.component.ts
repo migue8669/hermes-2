@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireStorage } from "@angular/fire/storage";
-import { FormGroup, FormControl, NgForm } from "@angular/forms";
+import { FormGroup, FormControl, NgForm, Validators } from "@angular/forms";
 import { ProductoRegistradoService } from "src/app/shared/producto-registrado.service";
 import { ImageService } from 'src/app/shared/image.service';
 
@@ -20,9 +20,9 @@ export class ProductosComponent implements OnInit {
 
   formTemplate = new FormGroup({
     $key: new FormControl(""),
-    nombre: new FormControl(""),
-    precio: new FormControl(""),
-    imageUrl: new FormControl(""),
+    nombre: new FormControl('', Validators.required),
+    precio: new FormControl('', Validators.required),
+    imageUrl: new FormControl('', Validators.required)
   });
 
   constructor(
@@ -50,6 +50,8 @@ export class ProductosComponent implements OnInit {
 
   onSubmit(formValue) {
     console.log(formValue);
+    this.isSubmitted = true;
+
     if (formValue.$key == null || formValue.$key == undefined) {
       this.service.insertImageDetails(formValue);
     } else {
@@ -90,7 +92,7 @@ cambioEstadoPaneles(estado){
   }
   onDelete(form:NgForm ) {
     console.log(form.value);
-    if (confirm('Are you sure to delete this record ?') === true) {
+    if (confirm('Está seguro de eliminar el registro?') === true) {
       this.service.deleteEmployee(form.value.$key);
       this.resetForm();
     }

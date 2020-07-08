@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit {
 
   formTemplate = new FormGroup({
    // precio: new FormControl('', Validators.required),
-    nombre: new FormControl(''),
+    nombre: new FormControl('', Validators.required),
     imageUrl: new FormControl('', Validators.required)
   })
 
