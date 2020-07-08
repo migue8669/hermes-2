@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'image', component: ImagesComponent, children: [
       { path: 'upload', component: ImageComponent },
       { path: 'list', component: ImageListComponent },
-      { path: 'registro', component: RegistroComponent },
+      { path: 'imagen', component: RegistroComponent },
       { path: 'despacho', component: DespachoComponent },
       { path: 'producto', component: ProductosComponent },
       { path: 'list-producto', component: ProductoRegistradoListComponent },

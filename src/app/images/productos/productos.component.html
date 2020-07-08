@@ -63,21 +63,29 @@
         </div>
         <div class="form-group col-md-6">
           <button
-            type="button"
-            class="btn btn-success btn-block float-right"
-            (click)="cambioEstadoPaneles(isHidden)"
-          >
-            {{ botonProducto }}
-          </button>
-        </div>
-        <div class="form-group col-md-6">
-          <button
             routerLink="../despacho"
             class="btn btn-primary btn-block float-right"
           >
             Despachos
           </button>
         </div>
+         <div class="form-group col-md-6">
+          <button
+          routerLink="../imagen"
+          type="button"
+          class="btn btn-primary btn-block float-right">
+          Nueva imagen
+        </button>
+          <!-- <button
+            type="button"
+            class="btn btn-success btn-block float-right"
+            (click)="cambioEstadoPaneles(isHidden)"
+          >
+            {{ botonProducto }}
+          </button> -->
+        </div> 
+
+    
         <div class="form-group col-md-6">
           <button
             type="button"
@@ -89,7 +97,6 @@
           </button>
         </div>
       </div>
-      <app-registro *ngIf="!isHidden"></app-registro>
       <app-producto-registrado-list
         *ngIf="isHidden2"
       ></app-producto-registrado-list>
