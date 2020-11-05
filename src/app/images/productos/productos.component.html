@@ -1,6 +1,8 @@
 <div class="card" style="width: 25rem;">
   <div class="card-body">
     <form [formGroup]="formTemplate" (ngSubmit)="onSubmit(formTemplate.value)">
+      <app-registro *ngIf="!isHidden"></app-registro>
+
       <div class="form-group">
         <input
           type="hidden"
@@ -89,7 +91,6 @@
           </button>
         </div>
       </div>
-      <app-registro *ngIf="!isHidden"></app-registro>
       <app-producto-registrado-list
         *ngIf="isHidden2"
       ></app-producto-registrado-list>
