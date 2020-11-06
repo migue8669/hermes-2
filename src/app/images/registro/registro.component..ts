@@ -14,7 +14,8 @@ export class RegistroComponent implements OnInit {
   imgSrc: string;
   selectedImage: any = null;
   isSubmitted: boolean;
-
+  isHidden: boolean = true;
+  isHidden2: boolean = true;
   formTemplate = new FormGroup({
    // precio: new FormControl('', Validators.required),
     nombre: new FormControl('', Validators.required),
@@ -56,7 +57,13 @@ export class RegistroComponent implements OnInit {
         })
       ).subscribe();
     }
+    this.cambioEstado();
   }
+
+    cambioEstado(){
+this.isHidden=!this.isHidden;
+    }
+  
 
   get formControls() {
     return this.formTemplate['controls'];

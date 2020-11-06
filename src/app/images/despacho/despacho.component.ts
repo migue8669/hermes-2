@@ -78,7 +78,7 @@ export class DespachoComponent implements OnInit {
 
   onDelete(form) {
     console.log(form.value);
-    if (confirm('Are you sure to delete this record ?') === true) {
+    if (confirm('¿Está seguro/a de eliminar el registro?') === true) {
       this.service.deleteEmployee(form.value.$key);
       this.resetForm();
     }
