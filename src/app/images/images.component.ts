@@ -7,11 +7,12 @@ import { ImageService } from '../shared/image.service';
   styles: []
 })
 export class ImagesComponent implements OnInit {
+  imgSrc: string;
 
   constructor(private service:ImageService) { }
 
   ngOnInit() {
-    this.service.getImageDetailList();
+    this.imgSrc = './assets/img/hermes.png';    this.service.getImageDetailList();
   }
 
 }

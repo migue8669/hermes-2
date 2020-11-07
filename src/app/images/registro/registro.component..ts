@@ -36,7 +36,7 @@ export class RegistroComponent implements OnInit {
       this.selectedImage = event.target.files[0];
     }
     else {
-      this.imgSrc = '/assets/img/image_placeholder.jpg';
+      this.imgSrc = './assets/img/image_placeholder.jpg';
       this.selectedImage = null;
     }
   }
@@ -76,7 +76,7 @@ this.isHidden=!this.isHidden;
       imageUrl: '',
       nombre: ''
     });
-    this.imgSrc = '/assets/img/image_placeholder.jpg';
+    this.imgSrc = './assets/img/image_placeholder.jpg';
     this.selectedImage = null;
     this.isSubmitted = false;
   }
